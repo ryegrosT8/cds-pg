@@ -83,13 +83,13 @@ describe('QL to PostgreSQL', () => {
           .where({ abv: { '>': 1.0 } })
           .orderBy({ abv: 'desc' })
       )
-      expect(beers[0].abv).toStrictEqual('5.9')
+      expect(beers[0].abv).toStrictEqual(5.9)
       const reverseBeers = await cds.run(
         SELECT.from(Beers)
           .where({ abv: { '>': 1.0 } })
           .orderBy({ abv: 'asc' })
       )
-      expect(reverseBeers[0].abv).toStrictEqual('4.9')
+      expect(reverseBeers[0].abv).toStrictEqual(4.9)
     })
 
     test('-> with groupBy', async () => {
